@@ -3,7 +3,7 @@ name: Nmap Scan on Push to Master
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   nmap-scan:
