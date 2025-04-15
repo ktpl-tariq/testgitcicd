@@ -1,0 +1,22 @@
+name: Nmap Scan on Push to Master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  nmap-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Nmap Scan
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y nmap
+          nmap -A -T4 157.175.248.130 -oN nmap-results.txt
+
+      - name: Upload Nmap Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: Nmap Scan Results
+          path: nmap-results.txt
