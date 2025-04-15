@@ -16,7 +16,7 @@ jobs:
           nmap -A -T4 157.175.248.130 -oN nmap-results.txt
 
       - name: Upload Nmap Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: Nmap Scan Results
           path: nmap-results.txt
